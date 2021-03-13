@@ -93,6 +93,12 @@ public class BannerView extends ReactViewGroup implements AdListener, LifecycleE
     return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, dm));
   }
 
+  public void cleanup() {
+    if (myAdView != null) {
+      myAdView.destroy();
+    }
+  }
+
   @Override
   public void onHostResume() {
 
@@ -105,8 +111,6 @@ public class BannerView extends ReactViewGroup implements AdListener, LifecycleE
 
   @Override
   public void onHostDestroy() {
-    if (myAdView != null) {
-      myAdView.destroy();
-    }
+    this.cleanup();
   }
 }

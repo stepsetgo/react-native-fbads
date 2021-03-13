@@ -52,6 +52,12 @@ public class BannerViewManager extends SimpleViewManager<BannerView> {
   }
 
   @Override
+    public void onDropViewInstance(@NonNull BannerView view) {
+        view.cleanup();
+        super.onDropViewInstance(view);
+    }
+
+  @Override
   public String getName() {
     return "CTKBannerView";
   }
